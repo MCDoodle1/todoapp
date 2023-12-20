@@ -1,0 +1,101 @@
+@use 'sass:math';
+@use 'variables' as *;
+
+
+// FUNCTIONS 
+
+// Change pixels to rems
+@function to-rems($size) {
+    $rems: math.div($size, 16px) * 1rem;
+    @return $rems;
+  }
+
+// round values to $n decimals
+@function round($number, $positions: 0) {
+    $n: 1;
+    @if $positions > 0 {
+        @for $i from 1 through $positions {
+            $n: $n * 10;
+        }
+    }
+    @return math.div(math.round($number * $n), $n);
+}
+
+// calculate values for fluid font-sizes
+@function clamped($min-fs, $max-fs, $min-bp: $default-min-bp, $max-bp: $default-max-bp) {
+    $slope: math.div($max-fs - $min-fs, $max-bp - $min-bp);
+    $slope-vw: round($slope * 100, 2);
+    $intercept-rems: round(to-rems($min-fs - $slope * $min-bp), 2);
+    $min-rems: round(to-rems($min-fs * math.pow($ratio-min, $power)), 2);
+    $max-rems: round(to-rems($max-fs * math.pow($ratio-max, $power)), 2);
+    @return clamp(#{$min-rems}, #{$slope-vw}vw + #{$intercept-rems}, #{$max-rems});
+}
+
+
+// MIXINS 
+
+@mixin grid($gap, $min-card-width, $cols) {
+    $prefered-value: calc((($min-card-width * $cols - $gap * 2) - 100%) * 999);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(clamp((100%/$cols) - $gap, $prefered-value, 100%), 1fr));
+    gap: $gap;
+}
+
+
+// CUSTOM PROPORTIES 
+
+:root {
+    // font sizes:
+    @for $i from 1 through length($steps-fs) {
+        $step: nth($steps-fs, $i);
+        $power: $i - $default-index-fs;
+        $min: $min-fs * math.pow($ratio-min, $power);
+        $max: $max-fs * math.pow($ratio-max, $power);
+        --fs-#{$step}: #{clamped($min, $max)};
+    }
+
+    // font weights:
+    @each $step, $weight in $font-weights {
+        --fw-#{$step}: #{$weight};
+    }
+
+    // line heights:
+    @each $step, $height in $line-heights {
+        --lh-#{$step}: #{$height};
+    }
+
+    // letter spacing:
+    @each $step, $space in $letter-spaces {
+        --ls-#{$step}: #{$space};
+    }
+    
+    // background colors:
+    @each $name, $color in $basic-colors {        
+        --clr-bg-#{$name}: #{$color};
+    }
+
+    // text colors:
+    @each $name, $color in $basic-colors {
+        --clr-txt-#{$name}: #{$color};
+    }
+    
+    // border colors:
+    @each $name, $color in $basic-colors {
+        --clr-border-#{$name}: #{$color};
+    }
+
+    // space
+    @each $level, $space in $gutter {
+        --space-#{$level}: #{$space};
+    }
+
+    // Max-width (length of text lines)
+    @each $step, $width in $measure {
+        --measure-#{$step}: #{$width};
+    }
+
+    // border radii
+    @each $size, $val in $border-radius {
+        --br-#{$size}: #{$val};
+    }
+};

@@ -1,0 +1,48 @@
+@use '../globals/variables' as *;
+
+.todo {
+    &__wrapper {
+        width: 90%;
+        display: flex;
+        flex-flow: column;
+    }
+
+    &__task-wrapper {
+    display: flex;
+    padding: var(--space-m);
+    align-items: center;
+    justify-content: space-between;
+        &:first-child{
+            border-radius:  var(--br-m) var(--br-m) 0 0;
+        }
+    }
+
+    &__task {
+        display: flex;
+        align-items: center;
+        gap: 1em;
+
+        &:hover {
+            cursor: pointer;
+        }
+        
+        &-open {
+            width: 1.25rem;
+            height: 1.25rem;
+            border-radius: 100%;
+        }
+        
+        &-closed {
+            background: linear-gradient(var(--clr-bg-primary-gradient-1), var(--clr-bg-primary-gradient-2));
+            width: 1.25rem;
+            height: 1.25rem;
+            border: 1px solid linear-gradient(var(--clr-bg-primary-gradient-1), var(--clr-bg-primary-gradient-2));
+            border-radius: 100%;
+        }
+    }
+
+    &__text-closed {    
+        text-decoration: line-through;
+    }
+}
+

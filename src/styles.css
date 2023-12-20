@@ -1,0 +1,454 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap");
+:root {
+  --fs-100: clamp(0.68rem, -0.22vw + 0.76rem, 0.51rem);
+  --fs-200: clamp(0.72rem, -0.11vw + 0.76rem, 0.64rem);
+  --fs-300: clamp(0.77rem, 0.04vw + 0.75rem, 0.8rem);
+  --fs-400: clamp(0.82rem, 0.24vw + 0.73rem, 1rem);
+  --fs-500: clamp(0.88rem, 0.5vw + 0.69rem, 1.25rem);
+  --fs-600: clamp(0.93rem, 0.84vw + 0.62rem, 1.56rem);
+  --fs-700: clamp(1rem, 1.28vw + 0.52rem, 1.95rem);
+  --fs-800: clamp(1.06rem, 1.84vw + 0.37rem, 2.44rem);
+  --fs-900: clamp(1.13rem, 2.56vw + 0.18rem, 3.05rem);
+  --fw-100: 100;
+  --fw-200: 200;
+  --fw-300: 300;
+  --fw-400: 400;
+  --fw-500: 500;
+  --fw-600: 600;
+  --fw-700: 700;
+  --fw-800: 800;
+  --fw-900: 900;
+  --lh-3xs: 1;
+  --lh-xxs: 1.125;
+  --lh-xs: 1.25;
+  --lh-s: 1.375;
+  --lh-m: 1.5;
+  --lh-l: 1.625;
+  --lh-xl: 1.75;
+  --lh-xxl: 1.875;
+  --lh-3xl: 2;
+  --ls-xs: -0.05em;
+  --ls-s: -0.025em;
+  --ls-m: 0;
+  --ls-l: 0.025em;
+  --ls-xl: 0.05em;
+  --ls-xxl: 0.1em;
+  --ls-3xl: 0.15em;
+  --ls-4xl: 0.2em;
+  --ls-5xl: 0.3em;
+  --clr-bg-primary-dark: hsl(220, 98%, 61%);
+  --clr-bg-primary-gradient-1: hsl(192, 100%, 67%);
+  --clr-bg-primary-gradient-2: hsl(280, 87%, 65%);
+  --clr-bg-primary-light: white;
+  --clr-bg-light-theme-100: hsl(0, 0%, 98%);
+  --clr-bg-light-theme-200: hsl(236, 33%, 92%);
+  --clr-bg-light-theme-300: hsl(233, 11%, 84%);
+  --clr-bg-light-theme-400: hsl(236, 9%, 61%);
+  --clr-bg-light-theme-500: hsl(235, 19%, 35%);
+  --clr-bg-dark-theme-100: hsl(235, 21%, 11%);
+  --clr-bg-dark-theme-200: hsl(235, 24%, 19%);
+  --clr-bg-dark-theme-300: hsl(234, 39%, 85%);
+  --clr-bg-dark-theme-400: hsl(236, 33%, 92%);
+  --clr-bg-dark-theme-500: hsl(234, 11%, 52%);
+  --clr-bg-dark-theme-600: hsl(233, 14%, 35%);
+  --clr-bg-dark-theme-700: hsl(237, 14%, 26%);
+  --clr-txt-primary-dark: hsl(220, 98%, 61%);
+  --clr-txt-primary-gradient-1: hsl(192, 100%, 67%);
+  --clr-txt-primary-gradient-2: hsl(280, 87%, 65%);
+  --clr-txt-primary-light: white;
+  --clr-txt-light-theme-100: hsl(0, 0%, 98%);
+  --clr-txt-light-theme-200: hsl(236, 33%, 92%);
+  --clr-txt-light-theme-300: hsl(233, 11%, 84%);
+  --clr-txt-light-theme-400: hsl(236, 9%, 61%);
+  --clr-txt-light-theme-500: hsl(235, 19%, 35%);
+  --clr-txt-dark-theme-100: hsl(235, 21%, 11%);
+  --clr-txt-dark-theme-200: hsl(235, 24%, 19%);
+  --clr-txt-dark-theme-300: hsl(234, 39%, 85%);
+  --clr-txt-dark-theme-400: hsl(236, 33%, 92%);
+  --clr-txt-dark-theme-500: hsl(234, 11%, 52%);
+  --clr-txt-dark-theme-600: hsl(233, 14%, 35%);
+  --clr-txt-dark-theme-700: hsl(237, 14%, 26%);
+  --clr-border-primary-dark: hsl(220, 98%, 61%);
+  --clr-border-primary-gradient-1: hsl(192, 100%, 67%);
+  --clr-border-primary-gradient-2: hsl(280, 87%, 65%);
+  --clr-border-primary-light: white;
+  --clr-border-light-theme-100: hsl(0, 0%, 98%);
+  --clr-border-light-theme-200: hsl(236, 33%, 92%);
+  --clr-border-light-theme-300: hsl(233, 11%, 84%);
+  --clr-border-light-theme-400: hsl(236, 9%, 61%);
+  --clr-border-light-theme-500: hsl(235, 19%, 35%);
+  --clr-border-dark-theme-100: hsl(235, 21%, 11%);
+  --clr-border-dark-theme-200: hsl(235, 24%, 19%);
+  --clr-border-dark-theme-300: hsl(234, 39%, 85%);
+  --clr-border-dark-theme-400: hsl(236, 33%, 92%);
+  --clr-border-dark-theme-500: hsl(234, 11%, 52%);
+  --clr-border-dark-theme-600: hsl(233, 14%, 35%);
+  --clr-border-dark-theme-700: hsl(237, 14%, 26%);
+  --space-4xs: calc(0.025 * (8px + 1.5625vw));
+  --space-3xs: calc(0.05 * (8px + 1.5625vw));
+  --space-xxs: calc(0.1 * (8px + 1.5625vw));
+  --space-xs: calc(0.25 * (8px + 1.5625vw));
+  --space-s: calc(0.5 * (8px + 1.5625vw));
+  --space-m: calc(8px + 1.5625vw);
+  --space-l: calc(1.5 * (8px + 1.5625vw));
+  --space-xl: calc(2 * (8px + 1.5625vw));
+  --space-xxl: calc(3 * (8px + 1.5625vw));
+  --space-3xl: calc(4 * (8px + 1.5625vw));
+  --space-4xl: calc(6 * (8px + 1.5625vw));
+  --space-5xl: calc(8 * (8px + 1.5625vw));
+  --measure-compact: 20ch;
+  --measure-medium: 30ch;
+  --measure-longform: 48ch;
+  --br-xxs: 0.125rem;
+  --br-xs: 0.25rem;
+  --br-s: 0.375rem;
+  --br-m: 0.5rem;
+  --br-l: 0.75rem;
+  --br-xl: 1rem;
+  --br-xxl: 1.5rem;
+  --br-none: 0rem;
+  --br-full: 100%;
+}
+
+*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+  all: unset;
+  display: revert;
+}
+
+/* Preferred box-sizing value */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Fix mobile Safari increase font-size on landscape mode */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Reapply the pointer cursor for anchor tags */
+a, button {
+  cursor: revert;
+}
+
+/* Remove list styles (bullets/numbers) */
+ol, ul, menu {
+  list-style: none;
+}
+
+/* For images to not be able to exceed their container */
+img {
+  max-inline-size: 100%;
+  max-block-size: 100%;
+}
+
+/* removes spacing between cells in tables */
+table {
+  border-collapse: collapse;
+}
+
+/* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+input, textarea {
+  -webkit-user-select: auto;
+}
+
+/* revert the 'white-space' property for textarea elements on Safari */
+textarea {
+  white-space: revert;
+}
+
+/* minimum style to allow to style meter element */
+meter {
+  -webkit-appearance: revert;
+  appearance: revert;
+}
+
+/* preformatted text - use only for this feature */
+:where(pre) {
+  all: revert;
+  box-sizing: border-box;
+}
+
+/* reset default text opacity of input placeholder */
+::placeholder {
+  color: unset;
+}
+
+/* remove default dot (•) sign */
+::marker {
+  content: initial;
+}
+
+/* fix the feature of 'hidden' attribute.
+ display:revert; revert to element instead of attribute */
+:where([hidden]) {
+  display: none;
+}
+
+/* revert for bug in Chromium browsers
+ - fix for the content editable attribute will work properly.
+ - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+:where([contenteditable]:not([contenteditable=false])) {
+  -moz-user-modify: read-write;
+  -webkit-user-modify: read-write;
+  overflow-wrap: break-word;
+  -webkit-line-break: after-white-space;
+  -webkit-user-select: auto;
+}
+
+/* apply back the draggable feature - exist only in Chromium and Safari */
+:where([draggable=true]) {
+  -webkit-user-drag: element;
+}
+
+/* Revert Modal native behavior */
+:where(dialog:modal) {
+  all: revert;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  color: var(--clr-txt-primary-light);
+  font-family: "Josefin Sans", sans-serif;
+  font-size: var(--fs-500);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  cursor: pointer;
+}
+
+.header__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--space-xl);
+}
+
+.header__title {
+  color: white;
+  font-size: var(--fs-900);
+  font-weight: var(--fw-700);
+  letter-spacing: var(--ls-5xl);
+}
+
+.light {
+  display: flex;
+  flex-direction: column;
+  background-color: hsl(0, 0%, 98%);
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: hsl(235, 19%, 35%);
+  min-height: 100vh;
+}
+.light .form {
+  color: hsl(236, 9%, 61%);
+  background-color: white;
+}
+.light .form-open {
+  border: 1px solid var(--clr-border-light-theme-200);
+}
+.light .todo__wrapper {
+  -webkit-box-shadow: 0px 0px 25px 0px #C1C1C1;
+  -moz-box-shadow: 0px 0px 25px 0px #C1C1C1;
+  box-shadow: 0px 0px 25px 0px #C1C1C1;
+}
+.light .todo__task-wrapper {
+  background-color: white;
+  border-bottom: 1px solid hsl(236, 33%, 92%);
+}
+.light .todo__task-open {
+  border: 1px solid hsl(236, 33%, 92%);
+}
+.light .todo__text-closed {
+  color: hsl(233, 11%, 84%);
+}
+.light .cta__todo-wrapper {
+  color: hsl(236, 9%, 61%);
+  background-color: white;
+  -webkit-box-shadow: 6px 50px 50px 19px #EFEFEF;
+  -moz-box-shadow: 6px 50px 50px 19px #EFEFEF;
+  box-shadow: 6px 50px 50px 19px #EFEFEF;
+}
+.light .cta__button-wrapper {
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 25px 0px #C1C1C1;
+  -moz-box-shadow: 0px 0px 25px 0px #C1C1C1;
+  box-shadow: 0px 0px 25px 0px #C1C1C1;
+}
+.light .cta__text {
+  color: hsl(236, 9%, 61%);
+}
+
+.dark {
+  display: flex;
+  flex-direction: column;
+  background-color: hsl(235, 21%, 11%);
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: hsl(234, 39%, 85%);
+  min-height: 100vh;
+}
+.dark .form {
+  color: hsl(234, 11%, 52%);
+  background-color: hsl(235, 24%, 19%);
+}
+.dark .form-open {
+  border: 1px solid hsl(233, 14%, 35%);
+}
+.dark .todo__task-wrapper {
+  background-color: hsl(235, 24%, 19%);
+  border-bottom: 1px solid hsl(237, 14%, 26%);
+}
+.dark .todo__task-open {
+  border: 1px solid hsl(233, 14%, 35%);
+}
+.dark .todo__text-open {
+  color: hsl(234, 39%, 85%);
+}
+.dark .todo__text-closed {
+  color: hsl(233, 14%, 35%);
+}
+.dark .cta__todo-wrapper {
+  color: hsl(234, 11%, 52%);
+  background-color: hsl(235, 24%, 19%);
+}
+.dark .cta__button-wrapper {
+  color: hsl(234, 11%, 52%);
+  background-color: hsl(235, 24%, 19%);
+}
+.dark .cta__text {
+  color: hsl(234, 11%, 52%);
+}
+
+.desktop-view :is(.header, .form, .todo__wrapper, .cta__todo-wrapper) {
+  width: 40%;
+}
+.desktop-view .cta__todo-wrapper {
+  font-size: var(--fs-400);
+}
+.desktop-view .cta__button-wrapper {
+  width: 0;
+  padding: 0;
+  margin-block: 0;
+  border-radius: 0;
+  gap: var(--space-s);
+  font-size: var(--fs-400);
+}
+
+.light.mobile-view {
+  background-image: url(../src/assets/images/bg-mobile-light.jpg);
+}
+
+.light.desktop-view {
+  background-image: url(../src/assets/images/bg-desktop-light.jpg);
+}
+
+.dark.mobile-view {
+  background-image: url(../src/assets/images/bg-mobile-dark.jpg);
+}
+
+.dark.desktop-view {
+  background-image: url(../src/assets/images/bg-desktop-dark.jpg);
+}
+
+.form {
+  width: 90%;
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  margin-block-end: var(--space-m);
+  border-radius: var(--br-s);
+}
+.form__input {
+  padding: var(--space-m) 0;
+}
+.form-open {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 100%;
+  margin-left: var(--space-m);
+}
+
+.todo__wrapper {
+  width: 90%;
+  display: flex;
+  flex-flow: column;
+}
+.todo__task-wrapper {
+  display: flex;
+  padding: var(--space-m);
+  align-items: center;
+  justify-content: space-between;
+}
+.todo__task-wrapper:first-child {
+  border-radius: var(--br-m) var(--br-m) 0 0;
+}
+.todo__task {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+.todo__task:hover {
+  cursor: pointer;
+}
+.todo__task-open {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 100%;
+}
+.todo__task-closed {
+  background: linear-gradient(var(--clr-bg-primary-gradient-1), var(--clr-bg-primary-gradient-2));
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 1px solid linear-gradient(var(--clr-bg-primary-gradient-1), var(--clr-bg-primary-gradient-2));
+  border-radius: 100%;
+}
+.todo__text-closed {
+  text-decoration: line-through;
+}
+
+.cta__todo-wrapper {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-m);
+  border-radius: 0 0 var(--br-m) var(--br-m);
+}
+.cta__button-wrapper {
+  width: 90%;
+  font-size: var(--fs-600);
+  display: flex;
+  gap: var(--space-xl);
+  justify-content: center;
+  padding: var(--space-m);
+  margin-block: var(--space-m);
+  border-radius: var(--br-m);
+}
+.cta__button-on {
+  color: hsl(220, 98%, 61%);
+  font-weight: var(--fw-700);
+}
+.cta__text {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-xl);
+}/*# sourceMappingURL=styles.css.map */

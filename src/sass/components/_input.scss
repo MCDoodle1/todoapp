@@ -1,0 +1,21 @@
+@use '../globals/variables';
+
+.form {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    gap: var(--space-m);
+    margin-block-end: var(--space-m);
+    border-radius: var(--br-s);
+    
+    &__input {
+        padding: var(--space-m) 0;
+    }
+
+    &-open {
+        width: 1.25rem;
+        height: 1.25rem;
+        border-radius: 100%;
+        margin-left: var(--space-m);
+    }
+}

@@ -1,0 +1,34 @@
+@use '../globals/variables' as *;
+
+
+.cta {
+    &__todo-wrapper {
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        padding: var(--space-m);
+        border-radius: 0 0 var(--br-m) var(--br-m);
+        }
+
+    &__button-wrapper {
+        width: 90%;
+        font-size: var(--fs-600);
+        display: flex;
+        gap: var(--space-xl);
+        justify-content: center;
+        padding: var(--space-m);
+        margin-block: var(--space-m);
+        border-radius: var(--br-m);
+        }
+
+    &__button-on {
+        color: $primary-dark;
+        font-weight: var(--fw-700);
+    }
+
+    &__text {
+        display: flex;
+        justify-content: center;
+        padding: var(--space-xl);
+    }
+}

@@ -1,0 +1,150 @@
+@use 'sass:math';
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+
+$primary-dark          :hsl(220, 98%, 61%);   // Bright blue
+$primary-gradient-1    :hsl(192, 100%, 67%);
+$primary-gradient-2    :hsl(280, 87%, 65%);    
+$primary-light         :white;                 // White
+
+$light-theme-100       :hsl(0, 0%, 98%);     // Very Light Gray
+$light-theme-200       :hsl(236, 33%, 92%);  // Very Light Grayish Blue
+$light-theme-300       :hsl(233, 11%, 84%);  // Light Grayish Blue
+$light-theme-400       :hsl(236, 9%, 61%);   // Dark Grayish Blue
+$light-theme-500       :hsl(235, 19%, 35%);  // Very Light Gray
+
+$dark-theme-100        :hsl(235, 21%, 11%);   // Very Dark Blue
+$dark-theme-200        :hsl(235, 24%, 19%);   // Very Dark Desaturated Blue
+$dark-theme-300        :hsl(234, 39%, 85%);   // Light Grayish Blue
+$dark-theme-400        :hsl(236, 33%, 92%);   // Light Grayish Blue / hover
+$dark-theme-500        :hsl(234, 11%, 52%);   // Dark Grayish Blue
+$dark-theme-600        :hsl(233, 14%, 35%);   // Very Dark Grayish Blue
+$dark-theme-700        :hsl(237, 14%, 26%);   // Most Dark Grayish Blue
+
+
+$basic-colors: (
+    "primary-dark"          :$primary-dark,
+    "primary-gradient-1"    :$primary-gradient-1,
+    "primary-gradient-2"    :$primary-gradient-2,
+    "primary-light"         :$primary-light,
+    "light-theme-100"       :$light-theme-100,
+    "light-theme-200"       :$light-theme-200,
+    "light-theme-300"       :$light-theme-300,
+    "light-theme-400"       :$light-theme-400,
+    "light-theme-500"       :$light-theme-500,
+    "dark-theme-100"        :$dark-theme-100,
+    "dark-theme-200"        :$dark-theme-200,
+    "dark-theme-300"        :$dark-theme-300,
+    "dark-theme-400"        :$dark-theme-400,
+    "dark-theme-500"        :$dark-theme-500,
+    "dark-theme-600"        :$dark-theme-600,
+    "dark-theme-700"        :$dark-theme-700,
+    );
+    
+$font-family: 'Josefin Sans', sans-serif;
+
+$breakpoints: (    
+    'tablet-portrait': 600px,      /* portrait tablets   */
+    'tablet-landscape': 900px,     /* landscape tablets  */
+    'desktop': 1200px,             /* laptops / desktops */
+    'big-desktop': 1800px          /* big desktops       */
+);
+
+// *** Global variables for font-sizes ***
+$ratio-min: 1.067;
+$ratio-max: 1.250;
+// -- Type scales / Ratios
+//    - 1.067 - Minor Second
+//    - 1.125 - Major Second
+//    - 1.200 - Minor Third
+//    - 1.250 - Major Third
+//    - 1.333 - Perfect Fourth
+//    - 1.414 - Augmented Fourth
+//    - 1.500 - Perfect Fifth
+//    - 1.618 - Golden Ratio
+
+$min-fs: 14px;  // minimum font-size
+$max-fs: 20px;  // maximum font-size
+$power: 0;
+$steps-fs: "100", "200", "300", "400", "500", "600", "700", "800", "900";
+$default-index-fs: index($steps-fs, "500");
+$default-min-bp: map-get($breakpoints, "tablet-portrait");
+$default-max-bp: map-get($breakpoints, "big-desktop");
+
+// Font weights:
+$font-weights: (
+    "100"               : 100,
+    "200"               : 200,
+    "300"               : 300,
+    "400"               : 400,
+    "500"               : 500,
+    "600"               : 600,
+    "700"               : 700,
+    "800"               : 800,
+    "900"               : 900,        
+);
+
+// padding, margin & gap
+$gutter: ( 
+    "4xs"               : calc(0.025 * calc(8px + 1.5625vw)), 
+    "3xs"               : calc(0.05 * calc(8px + 1.5625vw)),
+    "xxs"               : calc(0.1 * calc(8px + 1.5625vw)),
+    "xs"                : calc(0.25 * calc(8px + 1.5625vw)),
+    "s"                 : calc(0.5 * calc(8px + 1.5625vw)),
+    "m"                 : calc(8px + 1.5625vw),
+    "l"                 : calc(1.5 * calc(8px + 1.5625vw)),
+    "xl"                : calc(2 * calc(8px + 1.5625vw)),
+    "xxl"               : calc(3 * calc(8px + 1.5625vw)),
+    "3xl"               : calc(4 * calc(8px + 1.5625vw)),
+    "4xl"               : calc(6 * calc(8px + 1.5625vw)),
+    "5xl"               : calc(8 * calc(8px + 1.5625vw)),
+);
+
+$gutter-units: ("top", "right", "bottom", "left", "block", "inline", "all");
+
+// Line heights:
+$line-heights: (
+    "3xs"               : 1,
+    "xxs"               : 1.125,
+    "xs"                : 1.25,
+    "s"                 : 1.375,
+    "m"                 : 1.5,
+    "l"                 : 1.625,
+    "xl"                : 1.75,
+    "xxl"               : 1.875,
+    "3xl"               : 2,   
+);
+
+// Letter spacing:
+$letter-spaces: (
+    "xs"                : -0.05em,
+    "s"                 : -0.025em,
+    "m"                 : 0,
+    "l"                 : 0.025em,
+    "xl"                : 0.05em,
+    "xxl"               : 0.1em,
+    "3xl"               : 0.15em,
+    "4xl"               : 0.2em,
+    "5xl"               : 0.3em,
+);
+
+// Max-width (length of text lines)
+$measure: (
+    "compact"           : 20ch,
+    "medium"            : 30ch,
+    "longform"          : 48ch,
+);
+
+// Border radius:
+$border-radius: (
+    "xxs"               : .125rem,
+    "xs"                : .25rem,
+    "s"                 : .375rem,
+    "m"                 : .5rem,
+    "l"                 : .75rem,
+    "xl"                : 1rem,
+    "xxl"               : 1.5rem,
+    "none"              : 0rem,
+    "full"              : 100%
+);
+
+$border-radius-positions: ("tl", "tr", "bl", "br");
